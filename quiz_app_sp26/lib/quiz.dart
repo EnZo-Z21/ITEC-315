@@ -20,11 +20,21 @@ class _QuizState extends State<Quiz> {
     selectedAnswers.add(answer);
     if(selectedAnswers.length == questions.length){
       setState(() {
-        // selectedAnswers = [];
-        activeScreen = ResultsScreen(chosenAnswers: selectedAnswers);
+        activeScreen = ResultsScreen(
+          chosenAnswers: selectedAnswers,
+          onRestart: restartQuiz,
+        );
+        selectedAnswers = [];
       });
     }
 
+  }
+
+  void restartQuiz(){
+    setState(() {
+      selectedAnswers = [];
+      activeScreen = StartScreen(switchScreen);
+    });
   }
 
   Widget? activeScreen;

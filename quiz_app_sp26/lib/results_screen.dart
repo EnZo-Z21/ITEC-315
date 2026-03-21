@@ -53,7 +53,12 @@ class ResultsScreen extends StatelessWidget{
               textAlign: TextAlign.center,
             ),
             const SizedBox(height:30,),
-             QuestionsSummary(summaryData: summaryData),
+             SizedBox(
+              height: 300,
+              child: SingleChildScrollView(
+                child: QuestionsSummary(summaryData: summaryData),
+              ),
+             ),
             const SizedBox(height:30,),
             TextButton(
               onPressed: (){},

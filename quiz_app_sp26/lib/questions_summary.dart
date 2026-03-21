@@ -9,21 +9,30 @@ class QuestionsSummary extends StatelessWidget{
     return Column(
       children: summaryData.map(
         (data){
-          return Row(
-            children:[
-              Text(((data['question_index'] as int) +1).toString()),
-              Expanded(
-                child: Column(
-                  children:[
-                    Text(data['question'] as String),
-                    const SizedBox(height:5,),
-                    Text(data['user_answer'] as String),
-                    Text(data['correct_answer'] as String),
-                  ],
-                ),
-              )
-            ],
-          );
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0)  ,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 36,
+                  height: 36,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: data['user_answer'] == data['correct_answer'] ? Colors.green : Colors.red,
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    ((data['question_index'] as int) + 1).toString(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            );
         }
       ).toList(),
     );

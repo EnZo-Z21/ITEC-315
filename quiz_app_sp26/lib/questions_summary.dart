@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsSummary extends StatelessWidget{
   const QuestionsSummary({super.key, required this.summaryData});
@@ -27,6 +28,14 @@ class QuestionsSummary extends StatelessWidget{
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Your answer: ${data['user_answer']}',
+                    style: GoogleFonts.oswald(
+                      color: Colors.white,
+                      fontSize: 14,
                     ),
                   ),
                 )

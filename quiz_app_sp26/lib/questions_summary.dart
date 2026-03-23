@@ -30,15 +30,15 @@ class QuestionsSummary extends StatelessWidget{
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                ),
+                const SizedBox(height: 8),
                   Text(
-                    'Your answer: ${data['user_answer']}',
+                    'Your answer: ${data['user_answer'] as String} | Correct answer: ${data['correct_answer'] as String}',
                     style: GoogleFonts.oswald(
                       color: Colors.white,
                       fontSize: 14,
                     ),
                   ),
-                )
               ],
             ),
             );

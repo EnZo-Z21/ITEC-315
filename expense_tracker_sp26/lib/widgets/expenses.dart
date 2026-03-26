@@ -1,4 +1,5 @@
 import 'package:expense_tracker_sp26/models/expense.dart';
+import 'package:expense_tracker_sp26/widgets/expenses_list.dart';
 import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
@@ -20,8 +21,9 @@ class _ExpensesState extends State<Expenses> {
       body: Column(
         children: [
           Text('Chart Goes Here'),
-          SizedBox(height: 30),
-          Text('List of expenses goes here')
+          SizedBox(
+            height: 300,
+            child: ExpensesList(expenses: _registeredExpenses)),
         ],
       ),
     );

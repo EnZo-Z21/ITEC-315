@@ -14,15 +14,24 @@ class _ExpensesState extends State<Expenses> {
   final List<Expense> _registeredExpenses = [
     Expense(title: 'Ginos Pizza', amount: 25.00, date: DateTime.now(), category: Category.food),
     Expense(title: 'Train Ticket to MA', amount: 15.25, date: DateTime.now(), category: Category.travel),
+    Expense(title: 'Movie Ticket', amount: 18.00, date: DateTime.now(), category: Category.leisure),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Expense Tracker'),
+        actions: [
+          IconButton(icon: Icon(Icons.add), 
+          onPressed: (){
+            
+          })
+        ],
+      ),
       body: Column(
         children: [
           Text('Chart Goes Here'),
-          SizedBox(
-            height: 300,
+          Expanded(
             child: ExpensesList(expenses: _registeredExpenses)),
         ],
       ),

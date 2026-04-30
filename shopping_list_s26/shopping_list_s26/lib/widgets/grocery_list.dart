@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list_s26/data/dummy_items.dart';
+import 'package:shopping_list_s26/widgets/new_item.dart';
 
 class GroceryList extends StatefulWidget {
   const GroceryList({super.key});
@@ -10,10 +11,24 @@ class GroceryList extends StatefulWidget {
 }
 
 class _GroceryListState extends State<GroceryList> {
+  void _addItem() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => const NewItem(),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Your Groceries")),
+      appBar: AppBar(
+        title: const Text("Your Groceries"),
+        actions: [
+          IconButton( icon: Icon(Icons.add_box), 
+          onPressed: _addItem,
+          )
+        ],
+      ),
       body: ListView.builder(
         itemCount: groceryItems.length,
         itemBuilder: (ctx, index) => ListTile(
